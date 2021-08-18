@@ -1,20 +1,13 @@
 from django.contrib import admin
-from django.urls import path
-from rest_framework.routers import SimpleRouter
-from REST_fr.views import ModelViewSetclass, ListAPIViewclass, RetrieveAPIViewclass,\
-    CreateAPIViewclass, UpdateAPIViewclass, DestroyAPIViewclass
-
-router = SimpleRouter()
-router.register('api/ModelViewSet', ModelViewSetclass)
+from django.urls import path, include
+from employee.views import index
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
+    path('', index, name='index'),
     path('admin/', admin.site.urls),
-    path('api/list/', ListAPIViewclass.as_view()),
-    path('api/create/', CreateAPIViewclass.as_view()),
-    path('api/detail/<int:pk>', RetrieveAPIViewclass.as_view()),
-    path('api/update/<int:pk>', UpdateAPIViewclass.as_view()),
-    path('api/delete/<int:pk>', DestroyAPIViewclass.as_view()),
-
+    path('employee/', include('employee.urls')),
 ]
 
-urlpatterns += router.urls
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
