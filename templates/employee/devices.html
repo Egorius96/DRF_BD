@@ -1,0 +1,29 @@
+{% extends 'employee/wrapper.html' %}
+{% block title %}Devices Page{% endblock %}
+{% block content %}
+<p>
+    <br>
+    <a href="/" class="btn-success btn-lg">Main</a>
+    <a href="/info/api/Devices" class="btn-success btn-lg">Api</a>
+    <div class="jumbotron">
+        <div class="container">
+            {% for dev in device %}
+                <div class="alert alert-warning">
+                    <h3>
+                        <font color="#5f9ea0">Device: </font>{{ dev.device }}<br>
+                        <font color="#5f9ea0">Configuration: </font>{{ dev.configuration }}<br>
+                        <font color="#5f9ea0">Price: </font>{{ dev.price }}<br>
+                        <font color="#5f9ea0">Paid by: </font>{{ dev.paid_by }}<br>
+                        <font color="#5f9ea0">Item number: </font>{{ dev.item_number }}<br>
+                        {% for emp in employee %}
+                            <font color="#5f9ea0">Used by: </font>{{ emp.firstname }} {{ emp.lastname }}
+                        {% endfor %}
+
+                    </h3>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</p>
+
+{% endblock %}
