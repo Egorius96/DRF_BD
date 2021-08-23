@@ -18,12 +18,12 @@ def index(request):
     return render(request, 'employee/index.html')
 
 
-def EmployeesPage(request):
+def employees_page(request):
     employee = Employee.objects.all()
     device = Device.objects.all()
     return render(request, 'employee/employees.html', {'employee': employee, 'device': device})
 
-def DevicesPage(request):
+def devices_page(request):
     employee = Employee.objects.all()
     device = Device.objects.all()
     return render(request, 'employee/devices.html', {'employee': employee, 'device': device})

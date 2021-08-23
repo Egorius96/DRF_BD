@@ -20,11 +20,12 @@ parts/
 sdist/
 var/
 wheels/
+media/
 share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-*.idea
+.idea
 MANIFEST
 
 # PyInstaller
